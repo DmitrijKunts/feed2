@@ -9,6 +9,9 @@ class Offer extends Model
 {
     use HasFactory;
 
-    // public $timestamps = false;
-
+    protected $fillable = [
+        'merchant', 'ln', 'code', 'name', 'category', 'pictures',
+        'description', 'price', 'oldprice', 'currencyId',
+        'url', 'vendor', 'model', 'param',
+    ];
 }

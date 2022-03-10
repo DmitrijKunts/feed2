@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('pictures')->nullable();
             $table->text('description')->nullable();
             $table->decimal('price', $precision = 8, $scale = 2);
-            $table->decimal('oldprice', $precision = 8, $scale = 2);
+            $table->decimal('oldprice', $precision = 8, $scale = 2)->nullable();
             $table->string('currencyId');
-            $table->string('url');
+            $table->text('url');
             $table->string('vendor')->nullable();
             $table->string('model')->nullable();
             $table->jsonb('param')->nullable();
@@ -37,11 +37,11 @@ return new class extends Migration
         DB::statement("CREATE INDEX offers_tsv_rum ON offers USING RUM(tsv)");
 
         DB::statement("
-        CREATE FUNCTION offers_tsv_trigger() RETURNS trigger AS $$
+        CREATE OR REPLACE FUNCTION offers_tsv_trigger() RETURNS trigger AS $$
         begin
           new.tsv :=
-             setweight(to_tsvector(new.ln, new.name), 'A') ||
-             setweight(to_tsvector(new.ln, new.category), 'B');
+             setweight(to_tsvector(new.ln::regconfig, new.name), 'A') ||
+             setweight(to_tsvector(new.ln::regconfig, new.category), 'B');
           return new;
         end $$ LANGUAGE plpgsql;");
         DB::statement("CREATE TRIGGER tsv_search BEFORE INSERT OR UPDATE ON offers FOR EACH ROW EXECUTE PROCEDURE offers_tsv_trigger()");
