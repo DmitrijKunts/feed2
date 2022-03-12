@@ -8,6 +8,7 @@ use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 
 class Admitad
@@ -17,6 +18,7 @@ class Admitad
     public static function Import($merchants, $command, $output)
     {
         foreach ($merchants as $merchant => $data) {
+            $command->line('======================================');
             $command->info("$merchant importing...");
 
             $filename = "xml/{$merchant}.xml";
@@ -25,6 +27,10 @@ class Admitad
                 !Storage::exists($filename) ||
                 now()->diffInHours(Carbon::createFromTimestamp(Storage::lastModified($filename))) > 6
             ) {
+                if (!Storage::delete($filename)) {
+                    $command->error("$filename not deleted!");
+                    continue;
+                }
                 $command->info("Downloading...");
                 $res = Http::withOptions([
                     'verify' => false,
@@ -64,7 +70,7 @@ class Admitad
                         'name' => $offer->name,
                         'category' => self::getBreadcrumb($offer->categoryId),
                         'pictures' => $offer->picture,
-                        'description' => self::getDescription($data, $offer),
+                        'description' => self::getDescription($data, $offer, $code),
                         'price' => $offer->price,
                         'oldprice' => $offer->oldprice ?? 0,
                         'currencyId' => $offer->currencyId,
@@ -102,12 +108,18 @@ class Admitad
         return join(' > ', array_reverse($res));
     }
 
-    private static function getDescription($data, $offer)
+    private static function getDescription($data, $offer, $code)
     {
+        foreach (Arr::get($data, 'extdata.description') ?? [] as $dir) {
+            $hash = substr(md5($code), 0, 2);
+            $file = "$dir/$hash/$code.txt";
+            if (Storage::exists($file)) {
+                return Storage::get($file);
+            }
+        }
         if (Str::startsWith($offer->description, 'Welcome to Our Store!')) {
             return '';
         }
         return $offer->description;
-        // "Welcome to Our Store! We Are Offering High Quality Products with Reasonable Wholesale Price. All Products Are Supply from Factory Directly. Excellent Service and Fast Shipping"
     }
 }
