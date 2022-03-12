@@ -31,6 +31,7 @@ class OffersImport extends Command
             $this->info("CPA $importer importing...");
             $importer::Import($value, $this, $this->output);
         }
+        $this->output->success('Import successful');
         return 0;
     }
 }
