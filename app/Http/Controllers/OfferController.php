@@ -36,7 +36,7 @@ class OfferController extends Controller
             ->replaceMatches('~\s+~', '|');
 
         $offers = Offer::where('ln', $validated['ln'])
-            ->whereRaw("tsv <=> to_tsquery(ln::regconfig, '$query') < 1.5")
+            ->whereRaw("tsv <=> to_tsquery(ln::regconfig, '$query') < 1.0")
             ->select(DB::Raw("offers.*, tsv <=> to_tsquery(ln::regconfig, '$query') as rank"))
             ->orderBy('rank')
             ->limit(20)
