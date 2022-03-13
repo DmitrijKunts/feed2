@@ -18,7 +18,7 @@ class Admitad
     public static function Import($merchants, $command, $output)
     {
         foreach ($merchants as $merchant => $data) {
-            $command->title("$merchant importing...");
+            $command->info("==========$merchant importing================");
             // $command->info("$merchant importing...");
 
             $filename = "xml/{$merchant}.xml";
