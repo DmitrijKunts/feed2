@@ -84,7 +84,7 @@ class Admitad
                 );
             }
             $bar->finish();
-            $output->succes("$merchant $count created or updated.");
+            $output->success("$merchant $count created or updated.");
         }
     }
 
