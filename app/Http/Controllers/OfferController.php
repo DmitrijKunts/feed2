@@ -54,6 +54,13 @@ class OfferController extends Controller
         return response($res, 200, ['Content-Type' => 'text/html; charset=UTF-8']);
     }
 
+    public function presentsDescription(string $code)
+    {
+        $o = Offer::where('code', $code)->firstOrFail();
+
+        return response($o->description, 200, ['Content-Type' => 'text/html; charset=UTF-8']);
+    }
+
     private function getULP($url)
     {
         $parts = parse_url(trim($url));

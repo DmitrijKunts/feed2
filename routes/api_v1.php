@@ -5,5 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/presents/{merchant}', [OfferController::class, 'presents']);
+Route::get('/presents/{code}/description', [OfferController::class, 'presentsDescription']);
 
 Route::get('/search', [OfferController::class, 'search']);
+
