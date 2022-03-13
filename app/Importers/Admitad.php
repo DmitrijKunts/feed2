@@ -18,8 +18,7 @@ class Admitad
     public static function Import($merchants, $command, $output)
     {
         foreach ($merchants as $merchant => $data) {
-            $command->info("==========$merchant importing================");
-            // $command->info("$merchant importing...");
+            $output->title("$merchant importing");
 
             $filename = "xml/{$merchant}.xml";
             $body = null;
@@ -34,7 +33,7 @@ class Admitad
                 $command->info("Downloading...");
                 $res = Http::withOptions([
                     'verify' => false,
-                ])->timeout(300)->get($data['url']);
+                ])->timeout(600)->get($data['url']);
 
                 if ($res->failed()) {
                     $command->error("$merchant: failed download!");

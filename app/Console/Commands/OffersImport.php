@@ -28,7 +28,7 @@ class OffersImport extends Command
     public function handle()
     {
         foreach (config('import') as $importer => $value) {
-            $this->info("CPA $importer importing...");
+            $this->output->title("CPA $importer importing...");
             $importer::Import($value, $this, $this->output);
         }
         $this->output->success('Import successful');
