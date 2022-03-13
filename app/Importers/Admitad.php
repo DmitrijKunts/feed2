@@ -15,36 +15,40 @@ class Admitad
 {
     private static $categories = [];
 
+    public static function download($url, $filename, $command)
+    {
+        if (!Storage::delete($filename)) {
+            $command->error("$filename not deleted!");
+            return false;
+        }
+        $command->info("Downloading...");
+        $res = Http::withOptions([
+            'verify' => false,
+        ])->timeout(600)->get($url,);
+
+        if ($res->failed()) {
+            $command->error("$url: failed download!");
+            return false;
+        };
+        if (!Storage::exists('xml')) Storage::makeDirectory('xml');
+        Storage::put($filename, $res->body());
+        return true;
+    }
+
     public static function Import($merchants, $command, $output)
     {
         foreach ($merchants as $merchant => $data) {
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";
-            $body = null;
             if (
                 !Storage::exists($filename) ||
                 now()->diffInHours(Carbon::createFromTimestamp(Storage::lastModified($filename))) > 6
             ) {
-                if (!Storage::delete($filename)) {
-                    $command->error("$filename not deleted!");
-                    continue;
-                }
-                $command->info("Downloading...");
-                $res = Http::withOptions([
-                    'verify' => false,
-                ])->timeout(600)->get($data['url']);
-
-                if ($res->failed()) {
-                    $command->error("$merchant: failed download!");
-                    continue;
-                };
-                if (!Storage::exists('xml')) Storage::makeDirectory('xml');
-                Storage::put($filename, $res->body());
-                $body = $res->body();
-            } else {
-                $body = Storage::get($filename);
+                if (!self::download($data['url'], $filename, $command)) continue;
             }
+            $body = Storage::get($filename);
+
 
             $xmlObject = simplexml_load_string($body);
 
@@ -80,8 +84,7 @@ class Admitad
                 );
             }
             $bar->finish();
-            $command->info("");
-            $command->info("$merchant $count created or updated.");
+            $output->succes("$merchant $count created or updated.");
         }
     }
 
