@@ -48,7 +48,7 @@ if (!function_exists('scheme')) {
 }
 
 if (!function_exists('permutation')) {
-    function permutation($str, $host)
+    function permutation($str, $noise)
     {
         if (preg_match_all('~\{([^\{}]+)\}~isu', $str, $m)) {
             foreach ($m[1] as $seq) {
@@ -57,7 +57,7 @@ if (!function_exists('permutation')) {
                 if ($partsCount == 1) {
                     $str = str_replace('{' . $seq . '}', $parts[0], $str);
                 } else {
-                    $ind = genConst($partsCount, $host . $seq);
+                    $ind = genConst($partsCount, $noise . $seq);
                     $str = str_replace('{' . $seq . '}', $parts[$ind], $str);
                 }
             }

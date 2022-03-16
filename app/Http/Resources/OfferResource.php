@@ -21,7 +21,7 @@ class OfferResource extends JsonResource
             'code' => $this->code,
             'name' => $this->name,
             'category' => $this->category,
-            'description' => permutation($this->description, $request->input('host')),
+            'description' => permutation($this->description, $this->code . $request->input('host')),
             'url' => $this->url,
             'pictures' => $this->pictures,
             'price' => $this->price,
@@ -39,6 +39,4 @@ class OfferResource extends JsonResource
         parse_str($parts['query'], $query);
         return trim($query['ulp']);
     }
-
-
 }
