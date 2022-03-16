@@ -65,7 +65,9 @@ class Admitad
                 $bar->advance();
 
                 $code = "$merchant-" . trim($offer['id']);
-                if (($data['filter'] ?? '') == '' || Str::of($offer->name)->match($data['filter']) == '') continue;
+                if ($data['filter'] ?? '' != '') {
+                    if (Str::of($offer->name)->match($data['filter']) == '') continue;
+                }
                 if (!in_array((string)$offer->categoryId, $data['filter_cat'])) continue;
 
                 $count++;
