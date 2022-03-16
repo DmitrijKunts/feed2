@@ -52,6 +52,9 @@ return [
             'extdata' => [
                 'description' => ['extdata/touch/desc_multiparaphrases',],
             ],
+            'post_processing' => [
+                'name' => ['~ \[\d+?\]~', ''],
+            ],
         ],
     ],
 ];

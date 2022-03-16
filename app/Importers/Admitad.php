@@ -72,6 +72,10 @@ class Admitad
                     if (!in_array((string)$offer->categoryId, $data['filter_cat'])) continue;
                 }
 
+                foreach ($data['post_processing'] ?? [] as $ppKey => $ppVal) {
+                    $offer->$ppKey = (string)Str::of($offer->$ppKey)->replaceMatches($ppVal[0], $ppVal[1]);
+                }
+
                 $count++;
                 Offer::updateOrCreate(
                     ['code' => $code],
