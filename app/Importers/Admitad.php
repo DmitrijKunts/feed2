@@ -71,10 +71,7 @@ class Admitad
                 if ($data['filter_cat']) {
                     if (!in_array((string)$offer->categoryId, $data['filter_cat'])) continue;
                 }
-
-                foreach ($data['post_processing'] ?? [] as $ppKey => $ppVal) {
-                    $offer->$ppKey = (string)Str::of($offer->$ppKey)->replaceMatches($ppVal[0], $ppVal[1]);
-                }
+                self::postProcessing($offer, $data);
 
                 $count++;
                 Offer::updateOrCreate(
@@ -98,6 +95,12 @@ class Admitad
             $bar->finish();
             $command->info("");
             $output->success("$merchant $count created or updated.");
+        }
+    }
+
+    private static function postProcessing(&$offer, &$data){
+        foreach ($data['post_processing'] ?? [] as $ppKey => $ppVal) {
+            $offer->$ppKey = (string)Str::of($offer->$ppKey)->replaceMatches($ppVal[0], $ppVal[1]);
         }
     }
 
