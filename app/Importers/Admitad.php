@@ -55,6 +55,8 @@ class Admitad
             $categories = $xmlObject->shop->categories;
             self::cacheCategories($categories);
 
+            $data['filter_cat'] = $data['filter_cat'] ?? [];
+
             $count = 0;
             Offer::where('merchant', $merchant)->delete();
             $offers = $xmlObject->shop->offers;
@@ -63,7 +65,9 @@ class Admitad
                 $bar->advance();
 
                 $code = "$merchant-" . trim($offer['id']);
-                if (Str::of($offer->name)->match($data['filter']) == '') continue;
+                if (($data['filter'] ?? '') != '' && Str::of($offer->name)->match($data['filter']) == '') continue;
+                if (!in_array((string)$offer->categoryId, $data['filter_cat'])) continue;
+
                 $count++;
                 Offer::updateOrCreate(
                     ['code' => $code],
@@ -84,6 +88,7 @@ class Admitad
                 );
             }
             $bar->finish();
+            $command->info("");
             $output->success("$merchant $count created or updated.");
         }
     }
