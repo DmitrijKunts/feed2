@@ -48,7 +48,7 @@ return [
         'touch' => [
             'ln' => 'russian',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20724&format=xml',
-            'filter_cat' => [2978],
+            'filter_cat' => [2978, 3107, 312],
             'extdata' => [
                 'description' => ['extdata/touch/desc_multiparaphrases',],
             ],
@@ -56,5 +56,7 @@ return [
                 'name' => ['~ \[\d+?\]~', ''],
             ],
         ],
+
+        // fishki.ua ждем выгрузки
     ],
 ];

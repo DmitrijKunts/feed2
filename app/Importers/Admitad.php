@@ -64,12 +64,12 @@ class Admitad
             foreach ($offers->offer as $offer) {
                 $bar->advance();
 
+                if ($data['filter_cat']) {
+                    if (!in_array((string)$offer->categoryId, $data['filter_cat'])) continue;
+                }
                 $code = "$merchant-" . trim($offer['id']);
                 if ($data['filter'] ?? '' != '') {
                     if (Str::of($offer->name)->match($data['filter']) == '') continue;
-                }
-                if ($data['filter_cat']) {
-                    if (!in_array((string)$offer->categoryId, $data['filter_cat'])) continue;
                 }
                 self::postProcessing($offer, $data);
 
