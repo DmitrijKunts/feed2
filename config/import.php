@@ -44,7 +44,7 @@ return [
             ],
         ],
 
-        //============RUSSIAN================
+        // ============RUSSIAN================
         'touch' => [
             'ln' => 'russian',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20724&format=xml',
@@ -54,6 +54,13 @@ return [
             ],
             'post_processing' => [
                 'name' => ['~ \[\d+?\]~', ''],
+            ],
+        ],
+        'avtmarket' => [
+            'ln' => 'russian',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=18829&format=xml',
+            'extdata' => [
+                'description' => ['extdata/avtmarket/desc_multiparaphrases',],
             ],
         ],
 
