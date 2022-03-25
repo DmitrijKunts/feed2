@@ -48,7 +48,7 @@ return [
         'touch' => [
             'ln' => 'russian',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20724&format=xml',
-            'filter_cat' => [2978, 3107, 312],
+            'filter_cat' => [2978, 3107, 312, 760],
             'extdata' => [
                 'description' => ['extdata/touch/desc_multiparaphrases',],
             ],
@@ -63,7 +63,16 @@ return [
                 'description' => ['extdata/avtmarket/desc_multiparaphrases',],
             ],
         ],
+        // 'agromarket' => [
+        //     'ln' => 'russian',
+        //     'url' => 'http://export.admitad.com/ru/webmaster/websites/2173558/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=16930&format=xml',
+        //     'filter_cat' => [1025],
+        //     'extdata' => [
+        //         'description' => ['extdata/agromarket/desc_multiparaphrases',],
+        //     ],
+        // ],
 
         // fishki.ua ждем выгрузки
+        //itmag
     ],
 ];
