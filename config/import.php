@@ -3,50 +3,61 @@
 return [
     App\Importers\Admitad::class => [
         //============ENGLISH================
+
+        //MUSICAL
         'donner' => [
             'ln' => 'english',
+            'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21506&format=xml',
             'filter' => '~\bdrums?\b|\bpercussions?\b~i',
             'extdata' => [
                 'description' => ['extdata/donner/desc_multiparaphrases',],
             ],
         ],
+        // 'eastar' => [//деактивирован 31 марта 2022 года.
+        //     'ln' => 'english',
+        //     'geo' => 'en',
+        //     'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21829&format=xml',
+        //     'filter' => '~\bdrums?\b|\bpercussions?\b~i',
+        //     'extdata' => [
+        //         'description' => ['extdata/eastar/desc_multiparaphrases',],
+        //     ],
+        // ],
+        //MUSICAL
+
+
         'banggood' => [
             'ln' => 'english',
+            'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=19353&format=xml',
-            'filter' => '~\bdrums?\b|\bpercussions?\b~i',
+            'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike~i',
             'extdata' => [
                 'description' => ['extdata/banggood/desc_multiparaphrases',],
             ],
         ],
         'dhgate' => [
             'ln' => 'english',
+            'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20280&format=xml',
-            'filter' => '~\bdrums?\b|\bpercussions?\b~i',
+            'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
             ],
         ],
-        'eastar' => [
-            'ln' => 'english',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21829&format=xml',
-            'filter' => '~\bdrums?\b|\bpercussions?\b~i',
-            'extdata' => [
-                'description' => ['extdata/eastar/desc_multiparaphrases',],
-            ],
-        ],
         'tomtop' => [
             'ln' => 'english',
+            'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=14723&format=xml',
-            'filter' => '~\bdrums?\b|\bpercussions?\b~i',
+            'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike~i',
             'extdata' => [
                 'description' => ['extdata/tomtop/desc_multiparaphrases',],
             ],
         ],
 
-        // ============RUSSIAN================
+        // ============UKRAINIAN================
         'touch' => [
             'ln' => 'russian',
+            'geo' => 'ua',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20724&format=xml',
             'filter_cat' => [2978, 3107, 312, 760],
             'extdata' => [
@@ -58,6 +69,7 @@ return [
         ],
         'avtmarket' => [
             'ln' => 'russian',
+            'geo' => 'ua',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=18829&format=xml',
             'extdata' => [
                 'description' => ['extdata/avtmarket/desc_multiparaphrases',],
@@ -74,5 +86,18 @@ return [
 
         // fishki.ua ждем выгрузки
         //itmag
+
+        // ============RUSSIAN================
+        'pleer' => [
+            'ln' => 'russian',
+            'geo' => 'ru',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=14498&format=xml',
+            'filter_cat' => [
+                4887, 1856, 3251, 3658, 4179, //фильтры для воды
+            ],
+            'extdata' => [
+                'description' => ['extdata/pleer/desc_multiparaphrases',],
+            ],
+        ],
     ],
 ];
