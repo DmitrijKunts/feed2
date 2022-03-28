@@ -67,14 +67,14 @@ return [
                 'name' => ['~ \[\d+?\]~', ''],
             ],
         ],
-        'avtmarket' => [
-            'ln' => 'russian',
-            'geo' => 'ua',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=18829&format=xml',
-            'extdata' => [
-                'description' => ['extdata/avtmarket/desc_multiparaphrases',],
-            ],
-        ],
+        // 'avtmarket' => [
+        //     'ln' => 'russian',
+        //     'geo' => 'ua',
+        //     'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=18829&format=xml',
+        //     'extdata' => [
+        //         'description' => ['extdata/avtmarket/desc_multiparaphrases',],
+        //     ],
+        // ],
         // 'agromarket' => [
         //     'ln' => 'russian',
         //     'url' => 'http://export.admitad.com/ru/webmaster/websites/2173558/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=16930&format=xml',
