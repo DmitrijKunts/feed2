@@ -18,6 +18,7 @@ class OfferController extends Controller
         $validator = Validator::make($request->all(), [
             'q' => 'required|max:255',
             'ln' => 'required|in:english,russian',
+            'geo' => 'required|in:en,ru,ua',
             'host' => 'required|max:255',
         ]);
         if ($validator->fails()) {
@@ -36,6 +37,7 @@ class OfferController extends Controller
             ->replaceMatches('~\s+~', '|');
 
         $offers = Offer::where('ln', $validated['ln'])
+            ->where('geo', $validated['geo'])
             ->whereRaw("tsv <=> to_tsquery(ln::regconfig, '$query') < 1.0")
             ->select(DB::Raw("offers.*, tsv <=> to_tsquery(ln::regconfig, '$query') as rank"))
             ->orderBy('rank')

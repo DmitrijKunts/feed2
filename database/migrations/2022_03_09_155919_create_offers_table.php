@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('merchant');
             $table->string('ln');
+            $table->string('geo');
             $table->string('code')->unique();
             $table->string('name');
             $table->string('category');
@@ -31,6 +32,10 @@ return new class extends Migration
             $table->string('model')->nullable();
             $table->jsonb('param')->nullable();
             $table->timestamps();
+
+            $table->index(['ln', 'geo']);
+            $table->index('merchant');
+            $table->index('code');
         });
 
         DB::statement("ALTER TABLE offers ADD COLUMN tsv TSVECTOR");

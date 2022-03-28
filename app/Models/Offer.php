@@ -10,7 +10,7 @@ class Offer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'merchant', 'ln', 'code', 'name', 'category', 'pictures',
+        'merchant', 'ln', 'geo', 'code', 'name', 'category', 'pictures',
         'description', 'price', 'oldprice', 'currencyId',
         'url', 'vendor', 'model', 'param',
     ];

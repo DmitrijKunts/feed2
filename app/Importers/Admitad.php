@@ -38,6 +38,7 @@ class Admitad
     public static function Import($merchants, $command, $output)
     {
         foreach ($merchants as $merchant => $data) {
+            // if ($merchant != 'dhgate') continue;
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";
@@ -79,7 +80,8 @@ class Admitad
                     [
                         'merchant' => $merchant,
                         'ln' => $data['ln'],
-                        'name' => $offer->name,
+                        'geo' => $data['geo'],
+                        'name' => Str::limit($offer->name, 255, ''),
                         'category' => self::getBreadcrumb($offer->categoryId),
                         'pictures' => $offer->picture,
                         'description' => self::getDescription($data, $offer, $code),
@@ -98,7 +100,8 @@ class Admitad
         }
     }
 
-    private static function postProcessing(&$offer, &$data){
+    private static function postProcessing(&$offer, &$data)
+    {
         foreach ($data['post_processing'] ?? [] as $ppKey => $ppVal) {
             $offer->$ppKey = (string)Str::of($offer->$ppKey)->replaceMatches($ppVal[0], $ppVal[1]);
         }
@@ -110,7 +113,7 @@ class Admitad
         foreach ($categories->category as $category) {
             self::$categories[(int)$category['id']] = [
                 'name' => (string)$category,
-                'parentId' => (int)$category['parentId']
+                'parentId' => (int) ($category['parentId'] ?? -1)
             ];
         }
     }
