@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
-
+use Illuminate\Support\Facades\Log;
 
 class Admitad
 {
@@ -37,8 +37,9 @@ class Admitad
 
     public static function Import($merchants, $command, $output)
     {
+        libxml_use_internal_errors(true);
         foreach ($merchants as $merchant => $data) {
-            // if ($merchant != 'pleer') continue;
+            // if ($merchant != 'dhgate') continue;
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";
@@ -52,6 +53,11 @@ class Admitad
 
 
             $xmlObject = simplexml_load_string($body);
+            if ($xmlObject === false) {
+                $output->error('Cannot load xml source');
+                Log::error("[{$merchant}]: cannot load xml source");
+                continue;
+            }
 
             $categories = $xmlObject->shop->categories;
             self::cacheCategories($categories);
