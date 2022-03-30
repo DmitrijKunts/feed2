@@ -14,15 +14,15 @@ return [
                 'description' => ['extdata/donner/desc_multiparaphrases',],
             ],
         ],
-        // 'eastar' => [//деактивирован 31 марта 2022 года.
-        //     'ln' => 'english',
-        //     'geo' => 'en',
-        //     'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21829&format=xml',
-        //     'filter' => '~\bdrums?\b|\bpercussions?\b~i',
-        //     'extdata' => [
-        //         'description' => ['extdata/eastar/desc_multiparaphrases',],
-        //     ],
-        // ],
+        'eastar' => [//деактивирован 31 марта 2022 года.
+            'ln' => 'english',
+            'geo' => 'en',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21829&format=xml',
+            'filter' => '~\bdrums?\b|\bpercussions?\b~i',
+            'extdata' => [
+                'description' => ['extdata/eastar/desc_multiparaphrases',],
+            ],
+        ],
         //MUSICAL
 
 
