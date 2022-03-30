@@ -93,7 +93,8 @@ return [
             'geo' => 'ru',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=14498&format=xml',
             'filter_cat' => [
-                4887, 1856, 3251, 3658, 4179, //фильтры для воды
+                4887, //фильтры для воды
+                3262, //Принадлежности для пикника и туризма
             ],
             'extdata' => [
                 'description' => ['extdata/pleer/desc_multiparaphrases',],

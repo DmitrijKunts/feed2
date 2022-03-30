@@ -38,7 +38,7 @@ class Admitad
     public static function Import($merchants, $command, $output)
     {
         foreach ($merchants as $merchant => $data) {
-            // if ($merchant != 'dhgate') continue;
+            // if ($merchant != 'pleer') continue;
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";
@@ -57,6 +57,9 @@ class Admitad
             self::cacheCategories($categories);
 
             $data['filter_cat'] = $data['filter_cat'] ?? null;
+            if ($data['filter_cat']) {
+                $data['filter_cat'] = self::extractCats($data['filter_cat']);
+            }
 
             $count = 0;
             Offer::where('merchant', $merchant)->delete();
@@ -142,5 +145,18 @@ class Admitad
             return '';
         }
         return $offer->description;
+    }
+
+    private static function extractCats($cats)
+    {
+        $fullCats = $cats;
+        foreach ($cats as $cat) {
+            foreach (self::$categories as $k => $c) {
+                if ($c['parentId'] == $cat) {
+                    $fullCats[] = $k;
+                }
+            }
+        }
+        return $fullCats;
     }
 }
