@@ -39,7 +39,7 @@ class Admitad
     {
         libxml_use_internal_errors(true);
         foreach ($merchants as $merchant => $data) {
-            // if ($merchant != 'dhgate') continue;
+            // if ($merchant != 'pleer') continue;
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";

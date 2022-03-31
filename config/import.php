@@ -59,7 +59,11 @@ return [
             'ln' => 'russian',
             'geo' => 'ua',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20724&format=xml',
-            'filter_cat' => [2978, 3107, 312, 760],
+            'filter_cat' => [
+                2978, 3107, 312, 760,
+                149, //Гаджеты и электротранспорт
+                // 160, //Электротранспорт
+            ],
             'extdata' => [
                 'description' => ['extdata/touch/desc_multiparaphrases',],
             ],
@@ -95,6 +99,10 @@ return [
             'filter_cat' => [
                 4887, //фильтры для воды
                 3262, //Принадлежности для пикника и туризма
+
+                5164,//Для любителей кофе - подарки
+                4892,//Для приготовления кофе
+                4973,//Для чая и кофе - посуда
             ],
             'extdata' => [
                 'description' => ['extdata/pleer/desc_multiparaphrases',],
