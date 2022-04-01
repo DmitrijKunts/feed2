@@ -52,7 +52,7 @@ class Admitad
             $body = Storage::get($filename);
 
 
-            $xmlObject = simplexml_load_string($body);
+            $xmlObject = simplexml_load_string(Str::of($body)->finish('</offers></shop></yml_catalog>'));
             if ($xmlObject === false) {
                 $output->error('Cannot load xml source');
                 Log::error("[{$merchant}]: cannot load xml source");

@@ -35,15 +35,44 @@ return [
                 'description' => ['extdata/banggood/desc_multiparaphrases',],
             ],
         ],
-        'dhgate' => [
+
+        'dhgate4' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20280&format=xml',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20281&format=xml',
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
             ],
         ],
+        'dhgate6' => [
+            'ln' => 'english',
+            'geo' => 'en',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20282&format=xml',
+            'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike~i',
+            'extdata' => [
+                'description' => ['extdata/dhgate/desc_multiparaphrases',],
+            ],
+        ],
+        'dhgate8' => [
+            'ln' => 'english',
+            'geo' => 'en',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20283&format=xml',
+            'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike~i',
+            'extdata' => [
+                'description' => ['extdata/dhgate/desc_multiparaphrases',],
+            ],
+        ],
+        'dhgate15' => [
+            'ln' => 'english',
+            'geo' => 'en',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20284&format=xml',
+            'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike~i',
+            'extdata' => [
+                'description' => ['extdata/dhgate/desc_multiparaphrases',],
+            ],
+        ],
+
         'tomtop' => [
             'ln' => 'english',
             'geo' => 'en',
