@@ -119,6 +119,7 @@ return [
 
         // fishki.ua ждем выгрузки
         //itmag
+        //ITsell
 
         // ============RUSSIAN================
         'pleer' => [
