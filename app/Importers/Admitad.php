@@ -45,7 +45,7 @@ class Admitad
             $filename = "xml/{$merchant}.xml";
             if (
                 !Storage::exists($filename) ||
-                now()->diffInHours(Carbon::createFromTimestamp(Storage::lastModified($filename))) > 6
+                now()->diffInHours(Carbon::createFromTimestamp(Storage::lastModified($filename))) > 12
             ) {
                 if (!self::download($data['url'], $filename, $command)) continue;
             }
