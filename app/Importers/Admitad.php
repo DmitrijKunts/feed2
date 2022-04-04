@@ -15,16 +15,30 @@ class Admitad
 {
     private static $categories = [];
 
-    public static function download($url, $filename, $command)
+    public static function download($url, $filename, $command, $output)
     {
         if (!Storage::delete($filename)) {
             $command->error("$filename not deleted!");
             return false;
         }
         $command->info("Downloading...");
+        $bar = $output->createProgressBar(0);
+        $bar->start();
         $res = Http::withOptions([
             'verify' => false,
+            'progress' => function (
+                $downloadTotal,
+                $downloadedBytes,
+                $uploadTotal,
+                $uploadedBytes
+            ) use ($bar) {
+                if ($bar->getMaxSteps() == 0 && $downloadTotal != 0) {
+                    $bar->setMaxSteps($downloadTotal);
+                }
+                $bar->setProgress($downloadedBytes);
+            },
         ])->timeout(600)->get($url,);
+        $bar->finish();
 
         if ($res->failed()) {
             $command->error("$url: failed download!");
@@ -47,7 +61,7 @@ class Admitad
                 !Storage::exists($filename) ||
                 now()->diffInHours(Carbon::createFromTimestamp(Storage::lastModified($filename))) > 12
             ) {
-                if (!self::download($data['url'], $filename, $command)) continue;
+                if (!self::download($data['url'], $filename, $command, $output)) continue;
             }
             $body = Storage::get($filename);
 
