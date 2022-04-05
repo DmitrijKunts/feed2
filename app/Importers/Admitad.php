@@ -23,6 +23,7 @@ class Admitad
         }
         $command->info("Downloading...");
         $bar = $output->createProgressBar(0);
+        $bar->setMessage("Downloading");
         $bar->start();
         $res = Http::withOptions([
             'verify' => false,
