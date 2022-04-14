@@ -33,6 +33,7 @@ return [
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/banggood/desc_multiparaphrases',],
+                'summary' => ['extdata/banggood/desc_multisummary',],
             ],
         ],
 
@@ -43,6 +44,7 @@ return [
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
+                'summary' => ['extdata/dhgate/desc_multisummary',],
             ],
         ],
         'dhgate6' => [
@@ -52,6 +54,7 @@ return [
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
+                'summary' => ['extdata/dhgate/desc_multisummary',],
             ],
         ],
         'dhgate8' => [
@@ -61,6 +64,7 @@ return [
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
+                'summary' => ['extdata/dhgate/desc_multisummary',],
             ],
         ],
         'dhgate15' => [
@@ -70,6 +74,7 @@ return [
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
+                'summary' => ['extdata/banggood/desc_multisummary',],
             ],
         ],
 
@@ -91,7 +96,7 @@ return [
             'filter_cat' => [
                 2978, 3107, 312, 760,
                 149, //Гаджеты и электротранспорт
-                // 160, //Электротранспорт
+                3197, //Экшн-камеры и стедикамы
             ],
             'extdata' => [
                 'description' => ['extdata/touch/desc_multiparaphrases',],
@@ -143,6 +148,13 @@ return [
                 4904, // Здоровье и уход за собой
 
                 2922, 4338, 4426, 5694, 2683, 6478, 3374, 4391, 4389, // Электро
+
+                995, //Экшн-камера
+                1178, //Аксессуары для экшн камер
+                4907, //Стедикам
+                2504, //Монопод
+                1335, //штативы
+                998, //стедикамы, тележки, слайдеры и другое оборудование
             ],
             'extdata' => [
                 'description' => ['extdata/pleer/desc_multiparaphrases',],

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('category');
             $table->string('pictures')->nullable();
             $table->text('description')->nullable();
+            $table->text('summary')->nullable();
             $table->decimal('price', $precision = 8, $scale = 2);
             $table->decimal('oldprice', $precision = 8, $scale = 2)->nullable();
             $table->string('currencyId');

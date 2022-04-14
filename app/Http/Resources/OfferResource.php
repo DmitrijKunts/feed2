@@ -22,6 +22,7 @@ class OfferResource extends JsonResource
             'name' => $this->name,
             'category' => $this->category,
             'description' => permutation($this->description, $this->code . $request->input('host')),
+            'summary' => permutation($this->summary, $this->code . $request->input('host')),
             'url' => $this->url,
             'pictures' => $this->pictures,
             'price' => $this->price,

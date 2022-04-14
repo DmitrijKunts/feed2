@@ -54,7 +54,7 @@ class Admitad
     {
         libxml_use_internal_errors(true);
         foreach ($merchants as $merchant => $data) {
-            // if ($merchant != 'pleer') continue;
+            // if (!Str::contains($merchant, 'dhgate')) continue;
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";
@@ -109,6 +109,7 @@ class Admitad
                         'category' => self::getBreadcrumb($offer->categoryId),
                         'pictures' => $offer->picture,
                         'description' => self::getDescription($data, $offer, $code),
+                        'summary' => self::getSummary($data, $offer, $code),
                         'price' => $offer->price,
                         'oldprice' => $offer->oldprice ?? 0,
                         'currencyId' => $offer->currencyId,
@@ -151,6 +152,18 @@ class Admitad
             $currId =  $_cat['parentId'];
         }
         return join(' > ', array_reverse($res));
+    }
+
+    private static function getSummary($data, $offer, $code)
+    {
+        foreach (Arr::get($data, 'extdata.summary') ?? [] as $dir) {
+            $hash = substr(md5($code), 0, 2);
+            $file = "$dir/$hash/$code.txt";
+            if (Storage::exists($file)) {
+                return Storage::get($file);
+            }
+        }
+        return '';
     }
 
     private static function getDescription($data, $offer, $code)
