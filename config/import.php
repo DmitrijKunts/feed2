@@ -12,15 +12,17 @@ return [
             'filter' => '~\bdrums?\b|\bpercussions?\b~i',
             'extdata' => [
                 'description' => ['extdata/donner/desc_multiparaphrases',],
+                'summary' => ['extdata/donner/desc_multisummary',],
             ],
         ],
-        'eastar' => [ //деактивирован 31 марта 2022 года.
+        'eastar' => [
             'ln' => 'english',
             'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21829&format=xml',
             'filter' => '~\bdrums?\b|\bpercussions?\b~i',
             'extdata' => [
                 'description' => ['extdata/eastar/desc_multiparaphrases',],
+                'summary' => ['extdata/eastar/desc_multisummary',],
             ],
         ],
         //MUSICAL
@@ -74,7 +76,7 @@ return [
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
-                'summary' => ['extdata/banggood/desc_multisummary',],
+                'summary' => ['extdata/dhgate/desc_multisummary',],
             ],
         ],
 
@@ -85,6 +87,7 @@ return [
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/tomtop/desc_multiparaphrases',],
+                'summary' => ['extdata/tomtop/desc_multisummary',],
             ],
         ],
 
@@ -100,6 +103,7 @@ return [
             ],
             'extdata' => [
                 'description' => ['extdata/touch/desc_multiparaphrases',],
+                'summary' => ['extdata/touch/desc_multisummary',],
             ],
             'post_processing' => [
                 'name' => ['~ \[\d+?\]~', ''],
@@ -158,6 +162,7 @@ return [
             ],
             'extdata' => [
                 'description' => ['extdata/pleer/desc_multiparaphrases',],
+                'summary' => ['extdata/pleer/desc_multisummary',],
             ],
         ],
     ],
