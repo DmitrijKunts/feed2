@@ -20,6 +20,7 @@ class OfferController extends Controller
             'ln' => 'required|in:english,russian',
             'geo' => 'required|in:en,ru,ua',
             'host' => 'required|max:255',
+            'c' => 'integer|min:1|max:100',
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -41,7 +42,7 @@ class OfferController extends Controller
             ->whereRaw("tsv <=> to_tsquery(ln::regconfig, '$query') < 1.0")
             ->select(DB::Raw("offers.*, tsv <=> to_tsquery(ln::regconfig, '$query') as rank"))
             ->orderBy('rank')
-            ->limit(20)
+            ->limit($validated['c'] ?? 20)
             ->get();
 
 
