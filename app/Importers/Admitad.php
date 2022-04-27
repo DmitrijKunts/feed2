@@ -54,7 +54,7 @@ class Admitad
     {
         libxml_use_internal_errors(true);
         foreach ($merchants as $merchant => $data) {
-            // if (!Str::contains($merchant, 'dhgate')) continue;
+            // if (!Str::contains($merchant, 'pleer')) continue;
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";
@@ -107,9 +107,9 @@ class Admitad
                         'geo' => $data['geo'],
                         'name' => Str::limit($offer->name, 255, ''),
                         'category' => self::getBreadcrumb($offer->categoryId),
-                        'pictures' => $offer->picture,
+                        'pictures' => self::getPictures($data, $offer, $code), // $offer->picture,
                         'description' => self::getDescription($data, $offer, $code),
-                        'summary' => self::getSummary($data, $offer, $code),
+                        'summary' => self::getSummary($data, $code),
                         'price' => $offer->price,
                         'oldprice' => $offer->oldprice ?? 0,
                         'currencyId' => $offer->currencyId,
@@ -154,7 +154,25 @@ class Admitad
         return join(' > ', array_reverse($res));
     }
 
-    private static function getSummary($data, $offer, $code)
+    private static function getPictures($data, $offer, $code)
+    {
+        $re = '~\?v=\d+(,|\b)~';
+        foreach (Arr::get($data, 'extdata.pics') ?? [] as $dir) {
+            $hash = substr(md5($code), 0, 2);
+            $file = "$dir/$hash/$code.txt";
+            if (Storage::exists($file)) {
+                return (string)Str::of(Storage::get($file))
+                    ->replaceMatches($re, '')
+                    ->explode(PHP_EOL)
+                    ->map(fn ($item) => trim($item))
+                    ->filter(fn ($item) => $item != '')
+                    ->join(',');
+            }
+        }
+        return (string)Str::of($offer->picture)->replaceMatches($re, '');
+    }
+
+    private static function getSummary($data, $code)
     {
         foreach (Arr::get($data, 'extdata.summary') ?? [] as $dir) {
             $hash = substr(md5($code), 0, 2);

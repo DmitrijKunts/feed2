@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 
 class OfferResource extends JsonResource
 {
@@ -16,15 +17,19 @@ class OfferResource extends JsonResource
      */
     public function toArray($request)
     {
+        $noise = $this->code . $request->input('host');
         return [
             'rank' => $this->rank,
             'code' => $this->code,
             'name' => $this->name,
             'category' => $this->category,
-            'description' => permutation($this->description, $this->code . $request->input('host')),
-            'summary' => permutation($this->summary, $this->code . $request->input('host')),
+            'description' => permutation($this->description, $noise),
+            'summary' => permutation($this->summary, $noise),
             'url' => $this->url,
-            'pictures' => $this->pictures,
+            'pictures' => constSort(
+                Str::of($this->pictures)->explode(','),
+                $noise
+            )->slice(0, 3 + genConst(4, $noise)), //$this->pictures,
             'price' => $this->price,
             'oldprice' => $this->oldprice,
             'currencyId' => $this->currencyId,

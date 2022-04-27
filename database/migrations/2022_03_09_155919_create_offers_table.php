@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->string('category');
-            $table->string('pictures')->nullable();
+            $table->text('pictures')->nullable();
             $table->text('description')->nullable();
             $table->text('summary')->nullable();
             $table->decimal('price', $precision = 8, $scale = 2);

@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('constGen')) {
+if (!function_exists('genConst')) {
     function genConst($val, $noise = '')
     {
         return $val == 0 ? 0 : hexdec(substr(sha1($noise), 0, 15)) % $val;
@@ -10,7 +10,8 @@ if (!function_exists('constGen')) {
 if (!function_exists('constSort')) {
     function constSort($items, $noise = '')
     {
-        $items = collect($items);
+        $useArray = gettype($items) == 'array';
+        if ($useArray) $items = collect($items);
         $size = $items->count();
         $items = $items->sortBy(function ($item) use ($size, $noise) {
             if (gettype($item) == 'array') {
@@ -19,7 +20,8 @@ if (!function_exists('constSort')) {
                 return genConst($size, (string)$item . $noise);
             }
         });
-        return array_values($items->all());
+        if ($useArray) return array_values($items->all());
+        return $items->values();
     }
 }
 

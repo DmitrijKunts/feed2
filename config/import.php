@@ -13,6 +13,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/donner/desc_multiparaphrases',],
                 'summary' => ['extdata/donner/desc_multisummary',],
+                'pics' => ['extdata/donner/pics',],
             ],
         ],
         'eastar' => [
@@ -23,6 +24,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/eastar/desc_multiparaphrases',],
                 'summary' => ['extdata/eastar/desc_multisummary',],
+                'pics' => ['extdata/eastar/pics',],
             ],
         ],
         //MUSICAL
@@ -36,6 +38,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/banggood/desc_multiparaphrases',],
                 'summary' => ['extdata/banggood/desc_multisummary',],
+                'pics' => ['extdata/banggood/pics',],
             ],
         ],
 
@@ -47,6 +50,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
+                'pics' => ['extdata/dhgate/pics',],
             ],
         ],
         'dhgate6' => [
@@ -57,6 +61,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
+                'pics' => ['extdata/dhgate/pics',],
             ],
         ],
         'dhgate8' => [
@@ -67,6 +72,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
+                'pics' => ['extdata/dhgate/pics',],
             ],
         ],
         'dhgate15' => [
@@ -77,6 +83,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
+                'pics' => ['extdata/dhgate/pics',],
             ],
         ],
 
@@ -88,6 +95,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/tomtop/desc_multiparaphrases',],
                 'summary' => ['extdata/tomtop/desc_multisummary',],
+                'pics' => ['extdata/tomtop/pics',],
             ],
         ],
 
@@ -104,6 +112,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/touch/desc_multiparaphrases',],
                 'summary' => ['extdata/touch/desc_multisummary',],
+                'pics' => ['extdata/touch/pics',],
             ],
             'post_processing' => [
                 'name' => ['~ \[\d+?\]~', ''],
@@ -163,6 +172,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/pleer/desc_multiparaphrases',],
                 'summary' => ['extdata/pleer/desc_multisummary',],
+                'pics' => ['extdata/pleer/pics',],
             ],
         ],
     ],
