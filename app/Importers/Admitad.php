@@ -54,7 +54,7 @@ class Admitad
     {
         libxml_use_internal_errors(true);
         foreach ($merchants as $merchant => $data) {
-            // if (!Str::contains($merchant, 'pleer')) continue;
+            // if (!Str::contains($merchant, 'touch')) continue;
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";

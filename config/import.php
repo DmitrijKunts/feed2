@@ -105,7 +105,10 @@ return [
             'geo' => 'ua',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20724&format=xml',
             'filter_cat' => [
-                2978, 3107, 312, 760,
+                2978, //Одежда и аксессуары
+                760, //Техника для красоты и здоровья
+                312, //Зарядные устройства
+                3107, //Товары для кухни
                 149, //Гаджеты и электротранспорт
                 3197, //Экшн-камеры и стедикамы
             ],

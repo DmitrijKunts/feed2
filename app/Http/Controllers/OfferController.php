@@ -39,7 +39,7 @@ class OfferController extends Controller
 
         $offers = Offer::where('ln', $validated['ln'])
             ->where('geo', $validated['geo'])
-            ->whereRaw("tsv <=> to_tsquery(ln::regconfig, '$query') < 1.0")
+            ->whereRaw("tsv <=> to_tsquery(ln::regconfig, '$query') < 2.0")
             ->select(DB::Raw("offers.*, tsv <=> to_tsquery(ln::regconfig, '$query') as rank"))
             ->orderBy('rank')
             ->limit($validated['c'] ?? 20)
