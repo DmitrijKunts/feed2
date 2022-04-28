@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('pictures')->nullable();
             $table->text('description')->nullable();
             $table->text('summary')->nullable();
+            $table->text('alt')->nullable();
             $table->decimal('price', $precision = 8, $scale = 2);
             $table->decimal('oldprice', $precision = 8, $scale = 2)->nullable();
             $table->string('currencyId');

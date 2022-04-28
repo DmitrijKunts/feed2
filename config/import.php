@@ -115,6 +115,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/touch/desc_multiparaphrases',],
                 'summary' => ['extdata/touch/desc_multisummary',],
+                'alt' => ['extdata/touch/name_multiparaphrases',],
                 'pics' => ['extdata/touch/pics',],
             ],
             'post_processing' => [

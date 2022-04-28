@@ -11,7 +11,7 @@ class Offer extends Model
 
     protected $fillable = [
         'merchant', 'ln', 'geo', 'code', 'name', 'category', 'pictures',
-        'description', 'summary', 'price', 'oldprice', 'currencyId',
+        'description', 'summary', 'alt', 'price', 'oldprice', 'currencyId',
         'url', 'vendor', 'model', 'param',
     ];
 }
