@@ -13,6 +13,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/donner/desc_multiparaphrases',],
                 'summary' => ['extdata/donner/desc_multisummary',],
+                'alt' => ['extdata/donner/name_multiparaphrases',],
                 'pics' => ['extdata/donner/pics',],
             ],
         ],
@@ -24,6 +25,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/eastar/desc_multiparaphrases',],
                 'summary' => ['extdata/eastar/desc_multisummary',],
+                'alt' => ['extdata/eastar/name_multiparaphrases',],
                 'pics' => ['extdata/eastar/pics',],
             ],
         ],
@@ -38,6 +40,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/banggood/desc_multiparaphrases',],
                 'summary' => ['extdata/banggood/desc_multisummary',],
+                'alt' => ['extdata/banggood/name_multiparaphrases',],
                 'pics' => ['extdata/banggood/pics',],
             ],
         ],
@@ -50,6 +53,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
+                'alt' => ['extdata/dhgate/name_multiparaphrases',],
                 'pics' => ['extdata/dhgate/pics',],
             ],
         ],
@@ -61,6 +65,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
+                'alt' => ['extdata/dhgate/name_multiparaphrases',],
                 'pics' => ['extdata/dhgate/pics',],
             ],
         ],
@@ -72,6 +77,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
+                'alt' => ['extdata/dhgate/name_multiparaphrases',],
                 'pics' => ['extdata/dhgate/pics',],
             ],
         ],
@@ -83,6 +89,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
+                'alt' => ['extdata/dhgate/name_multiparaphrases',],
                 'pics' => ['extdata/dhgate/pics',],
             ],
         ],
@@ -95,6 +102,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/tomtop/desc_multiparaphrases',],
                 'summary' => ['extdata/tomtop/desc_multisummary',],
+                'alt' => ['extdata/tomtop/name_multiparaphrases',],
                 'pics' => ['extdata/tomtop/pics',],
             ],
         ],
@@ -176,6 +184,7 @@ return [
             'extdata' => [
                 'description' => ['extdata/pleer/desc_multiparaphrases',],
                 'summary' => ['extdata/pleer/desc_multisummary',],
+                'alt' => ['extdata/pleer/name_multiparaphrases',],
                 'pics' => ['extdata/pleer/pics',],
             ],
         ],
