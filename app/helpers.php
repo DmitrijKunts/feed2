@@ -49,6 +49,17 @@ if (!function_exists('scheme')) {
     }
 }
 
+if (!function_exists('deDouble')) {
+    function deDouble($str): string
+    {
+        while (true) {
+            $t = (string)Str::of($str)->replaceMatches('~\b(\S+?)\b\s+?\b(\1)\b~isu', '\1');
+            if ($t == $str) return $t;
+            $str = $t;
+        }
+    }
+}
+
 if (!function_exists('permutation')) {
     function permutation($str, $noise)
     {
@@ -64,6 +75,7 @@ if (!function_exists('permutation')) {
                 }
             }
         }
-        return $str;
+
+        return deDouble($str);
     }
 }
