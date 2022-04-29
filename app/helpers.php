@@ -52,6 +52,7 @@ if (!function_exists('scheme')) {
 if (!function_exists('deDouble')) {
     function deDouble($str): string
     {
+        $str = (string)Str::replace('""', '"', $str);
         while (true) {
             $t = (string)Str::of($str)->replaceMatches('~\b(\S+?)\b\s+?\b(\1)\b~isu', '\1');
             if ($t == $str) return $t;

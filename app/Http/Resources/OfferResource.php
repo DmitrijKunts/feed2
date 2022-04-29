@@ -21,12 +21,12 @@ class OfferResource extends JsonResource
 
         $alts = collect([]);
         foreach (range(0, 3 + genConst(4, $noise)) as $v) {
-            $alts->push($this->name . ($v == 0 ? '' : " #$v"));
+            $alts->push(deDouble($this->name) . ($v == 0 ? '' : " #$v"));
         }
         $alts = constSort(
             Str::of($this->alt)->explode(PHP_EOL),
             $noise
-        )->map(fn ($i) => trim($i))
+        )->map(fn ($i) => trim(deDouble($i)))
             ->filter(fn ($i) => $i != '')
             ->merge($alts)
             ->slice(0, 3 + genConst(4, $noise));
@@ -34,7 +34,7 @@ class OfferResource extends JsonResource
         return [
             'rank' => $this->rank,
             'code' => $this->code,
-            'name' => $this->name,
+            'name' => deDouble($this->name),
             'category' => $this->category,
             'description' => permutation($this->description, $noise),
             'summary' => permutation($this->summary, $noise),
