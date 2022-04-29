@@ -54,7 +54,7 @@ if (!function_exists('deDouble')) {
     {
         $str = (string)Str::replace('""', '"', $str);
         while (true) {
-            $t = (string)Str::of($str)->replaceMatches('~\b(\S+?)\b\s+?\b(\1)\b~isu', '\1');
+            $t = (string)Str::of($str)->replaceMatches('~\b(\S+?)\b\s+?\b(\1)\b|west-west-~isu', '\1');
             if ($t == $str) return $t;
             $str = $t;
         }
