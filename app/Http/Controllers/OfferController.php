@@ -38,10 +38,10 @@ class OfferController extends Controller
             ->replaceMatches('~\s+~', '|');
 
         $rank = $validated['ln'] == 'english' ? 1.3 : 2.0;
-        $offers = Offer::where('ln', $validated['ln'])
+        $offers = Offer::selectRaw("offers.*, tsv <=> to_tsquery(ln::regconfig, ?) as rank", [$query])
+            ->where('ln', $validated['ln'])
             ->where('geo', $validated['geo'])
-            ->whereRaw("tsv <=> to_tsquery(ln::regconfig, '$query') < $rank")
-            ->select(DB::Raw("offers.*, tsv <=> to_tsquery(ln::regconfig, '$query') as rank"))
+            ->whereRaw("tsv <=> to_tsquery(ln::regconfig, ?) < ?", [$query, $rank])
             ->orderBy('rank')
             ->limit($validated['c'] ?? 20)
             ->get();
