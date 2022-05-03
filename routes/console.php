@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Offer;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -14,6 +15,26 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Artisan::command('stat', function () {
+    $this->info('Geos');
+    $res = Offer::selectRaw('count(*) as c, geo')->groupBy('geo')->get();
+    $rows = [];
+    foreach ($res as $r) {
+        $rows[] = [$r->geo, $r->c];
+    }
+    $this->table(
+        ['Geo', 'Value'],
+        $rows
+    );
+
+    $this->info('Languages');
+    $res = Offer::selectRaw('count(*) as c, ln')->groupBy('ln')->get();
+    $rows = [];
+    foreach ($res as $r) {
+        $rows[] = [$r->ln, $r->c];
+    }
+    $this->table(
+        ['Language', 'Value'],
+        $rows
+    );
+})->purpose('Show statistic.');
