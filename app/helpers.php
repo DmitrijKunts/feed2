@@ -32,37 +32,21 @@ if (!function_exists('constOne')) {
     }
 }
 
-if (!function_exists('scheme')) {
-    function scheme()
-    {
-        $cf = request()->server('HTTP_CF_VISITOR');
-        if ($cf) {
-            $scheme = json_decode($cf, true);
-            if (isset($scheme['scheme'])) {
-                return $scheme['scheme'];
-            } else {
-                return 'http';
-            }
-        } else {
-            return 'http';
-        }
-    }
-}
-
 if (!function_exists('deDouble')) {
     function deDouble($str): string
     {
-        $str = (string)Str::replace('""', '"', $str);
+        // $str = (string)Str::replace('""', '"', $str);
+        $str = (string)Str::of($str)->replaceMatches('~"{2,}~s', '"');
         while (true) {
             $t = (string)Str::of($str)->replaceMatches('~\b(\S+?)\b\s+?\b(\1)\b|west-west-~isu', '\1');
-            if ($t == $str) return $t;
+            if ($t == $str) return Str::squish($t);
             $str = $t;
         }
     }
 }
 
 if (!function_exists('permutation')) {
-    function permutation($str, $noise)
+    function permutation($str, $noise = '')
     {
         if (preg_match_all('~\{([^\{}]+)\}~isu', $str, $m)) {
             foreach ($m[1] as $seq) {
