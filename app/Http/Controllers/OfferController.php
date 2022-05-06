@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class OfferController extends Controller
 {
-    // public function search(OfferSearchRequest $request)
     public function search(Request $request)
     {
         $validator = Validator::make($request->all(), [

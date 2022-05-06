@@ -15,34 +15,40 @@ class Admitad
 {
     private static $categories = [];
 
-    public static function download($url, $filename, $command, $output)
+    private static function download($url, $filename, $command = null, $output = null)
     {
         if (!Storage::delete($filename)) {
-            $command->error("$filename not deleted!");
+            if ($command) $command->error("$filename not deleted!");
             return false;
         }
-        $command->info("Downloading...");
-        $bar = $output->createProgressBar(0);
-        $bar->setMessage("Downloading");
-        $bar->start();
-        $res = Http::withOptions([
-            'verify' => false,
-            'progress' => function (
-                $downloadTotal,
-                $downloadedBytes,
-                $uploadTotal,
-                $uploadedBytes
-            ) use ($bar) {
-                if ($bar->getMaxSteps() == 0 && $downloadTotal != 0) {
-                    $bar->setMaxSteps($downloadTotal);
-                }
-                $bar->setProgress($downloadedBytes);
-            },
-        ])->timeout(600)->get($url,);
-        $bar->finish();
+        if ($command) $command->info("Downloading...");
+        if ($output) {
+            $bar = $output->createProgressBar(0);
+            $bar->setMessage("Downloading");
+            $bar->start();
+            $res = Http::withOptions([
+                'verify' => false,
+                'progress' => function (
+                    $downloadTotal,
+                    $downloadedBytes,
+                    $uploadTotal,
+                    $uploadedBytes
+                ) use ($bar) {
+                    if ($bar->getMaxSteps() == 0 && $downloadTotal != 0) {
+                        $bar->setMaxSteps($downloadTotal);
+                    }
+                    $bar->setProgress($downloadedBytes);
+                },
+            ])->timeout(600)->get($url,);
+            $bar->finish();
+        } else {
+            $res = Http::withOptions([
+                'verify' => false,
+            ])->timeout(600)->get($url,);
+        }
 
         if ($res->failed()) {
-            $command->error("$url: failed download!");
+            if ($command) $command->error("$url: failed download!");
             return false;
         };
         if (!Storage::exists('xml')) Storage::makeDirectory('xml');
@@ -54,7 +60,7 @@ class Admitad
     {
         libxml_use_internal_errors(true);
         foreach ($merchants as $merchant => $data) {
-            // if (!Str::contains($merchant, 'pleer')) continue;
+            // if (!Str::contains($merchant, 'eastar')) continue;
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";
@@ -126,7 +132,7 @@ class Admitad
         }
     }
 
-    private static function postProcessing(&$offer, &$data)
+    public static function postProcessing(&$offer, &$data)
     {
         foreach ($data['post_processing'] ?? [] as $ppKey => $ppVal) {
             $offer->$ppKey = (string)Str::of($offer->$ppKey)->replaceMatches($ppVal[0], $ppVal[1]);
