@@ -50,7 +50,6 @@ return [
             'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20281&format=xml',
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
-            // 'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
@@ -63,7 +62,6 @@ return [
             'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20282&format=xml',
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
-            // 'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
@@ -76,7 +74,6 @@ return [
             'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20283&format=xml',
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
-            // 'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
@@ -89,7 +86,6 @@ return [
             'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20284&format=xml',
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
-            // 'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
                 'summary' => ['extdata/dhgate/desc_multisummary',],
@@ -102,8 +98,7 @@ return [
             'ln' => 'english',
             'geo' => 'en',
             'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=14723&format=xml',
-            // 'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
-            'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing~i',
+            'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
             'extdata' => [
                 'description' => ['extdata/tomtop/desc_multiparaphrases',],
                 'summary' => ['extdata/tomtop/desc_multisummary',],

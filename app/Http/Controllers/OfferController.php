@@ -2,49 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\SearchAction;
+use App\Http\Requests\SearchRequest;
 use App\Http\Resources\OfferCollection;
 use App\Http\Resources\OfferResource;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
+
 
 class OfferController extends Controller
 {
-    public function search(Request $request)
+    public function search(SearchRequest $request, SearchAction $action)
     {
-        $validator = Validator::make($request->all(), [
-            'q' => 'required|max:255',
-            'ln' => 'required|in:english,russian',
-            'geo' => 'required|in:en,ru,ua',
-            'host' => 'required|max:255',
-            'c' => 'integer|min:1|max:100',
-        ]);
-        if ($validator->fails()) {
-            return response()->json([
-                'success'   => false,
-                'message'   => 'Validation errors',
-                'errors'      => $validator->errors()
-            ]);
-        }
-        $validated = $validator->validated();
-
-        $query = (string)Str::of($validated['q'])
-            ->replaceMatches('~[\?:\'"|!&\(\)\-\+\*<>/\\\\]~', ' ')
-            ->replaceMatches('~\b\w{1,2}\b~u', '')
-            ->trim()
-            ->replaceMatches('~\s+~', '|');
-
-        $rank = $validated['ln'] == 'english' ? 1.3 : 2.0;
-        $offers = Offer::selectRaw("offers.*, tsv <=> to_tsquery(ln::regconfig, ?) as rank", [$query])
-            ->where('ln', $validated['ln'])
-            ->where('geo', $validated['geo'])
-            ->whereRaw("tsv <=> to_tsquery(ln::regconfig, ?) < ?", [$query, $rank])
-            ->orderBy('rank')
-            ->limit($validated['c'] ?? 20)
-            ->get();
-
+        [$offers, $query] = $action->handle($request->validated());
 
         return new OfferCollection($offers, compact('query'));
     }
