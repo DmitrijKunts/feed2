@@ -64,3 +64,12 @@ if (!function_exists('permutation')) {
         return deDouble($str);
     }
 }
+
+if (!function_exists('getULP')) {
+    function getULP($url)
+    {
+        $parts = parse_url(trim($url));
+        parse_str($parts['query'], $query);
+        return trim($query['ulp']);
+    }
+}

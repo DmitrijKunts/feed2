@@ -53,10 +53,4 @@ class OfferResource extends JsonResource
         ];
     }
 
-    private function getULP($url)
-    {
-        $parts = parse_url(trim($url));
-        parse_str($parts['query'], $query);
-        return trim($query['ulp']);
-    }
 }

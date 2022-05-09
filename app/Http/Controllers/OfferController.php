@@ -23,7 +23,7 @@ class OfferController extends Controller
     public function presents(string $merchant)
     {
         $res = collect(Offer::where('merchant', $merchant)->get())->map(function ($i) {
-            return "{$i->code}\t" . $this->getULP($i->url);
+            return "{$i->code}\t" . getULP($i->url);
         })->implode(PHP_EOL) . PHP_EOL;
         return response($res, 200, ['Content-Type' => 'text/html; charset=UTF-8']);
     }
@@ -42,10 +42,4 @@ class OfferController extends Controller
         return response($o->name, 200, ['Content-Type' => 'text/html; charset=UTF-8']);
     }
 
-    private function getULP($url)
-    {
-        $parts = parse_url(trim($url));
-        parse_str($parts['query'], $query);
-        return trim($query['ulp']);
-    }
 }
