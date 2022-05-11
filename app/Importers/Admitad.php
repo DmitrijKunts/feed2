@@ -56,11 +56,13 @@ class Admitad
         return true;
     }
 
-    public static function Import($merchants, $command, $output)
+    public static function Import($merchants, $command, $output, $filter = '')
     {
         libxml_use_internal_errors(true);
         foreach ($merchants as $merchant => $data) {
-            // if (!Str::contains($merchant, 'eastar')) continue;
+            if ($filter && !Str::contains($merchant, $filter)) {
+                continue;
+            }
             $output->title("[$merchant] importing");
 
             $filename = "xml/{$merchant}.xml";
@@ -95,13 +97,23 @@ class Admitad
             foreach ($offers->offer as $offer) {
                 $bar->advance();
 
-                if ($data['filter_cat']) {
-                    if (!in_array((string)$offer->categoryId, $data['filter_cat'])) continue;
+                $filterOrFound = false;
+                if ($data['filter_or'] ?? '' != '') {
+                    if (Str::of($offer->name)->match($data['filter_or']) != '') {
+                        $filterOrFound = true;
+                    }
                 }
-                $code = "$merchant-" . trim($offer['id']);
-                if ($data['filter'] ?? '' != '') {
-                    if (Str::of($offer->name)->match($data['filter']) == '') continue;
+
+                if (!$filterOrFound) {
+                    if ($data['filter_cat']) {
+                        if (!in_array((string)$offer->categoryId, $data['filter_cat'])) continue;
+                    }
+                    $code = "$merchant-" . trim($offer['id']);
+                    if ($data['filter'] ?? '' != '') {
+                        if (Str::of($offer->name)->match($data['filter']) == '') continue;
+                    }
                 }
+
                 self::postProcessing($offer, $data);
 
                 $count++;
@@ -143,9 +155,9 @@ class Admitad
     {
         self::$categories = [];
         foreach ($categories->category as $category) {
-            self::$categories[(int)$category['id']] = [
+            self::$categories[(string)$category['id']] = [
                 'name' => (string)$category,
-                'parentId' => (int) ($category['parentId'] ?? -1)
+                'parentId' => (string) ($category['parentId'] ?? -1)
             ];
         }
     }

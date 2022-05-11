@@ -11,7 +11,7 @@ class OffersImport extends Command
      *
      * @var string
      */
-    protected $signature = 'offers:import';
+    protected $signature = 'offers:import {--filter=}';
 
     /**
      * The console command description.
@@ -29,7 +29,7 @@ class OffersImport extends Command
     {
         foreach (config('import') as $importer => $value) {
             $this->output->title("CPA $importer importing...");
-            $importer::Import($value, $this, $this->output);
+            $importer::Import($value, $this, $this->output, $this->option('filter'));
         }
         $this->output->success('Import successful');
         return 0;
