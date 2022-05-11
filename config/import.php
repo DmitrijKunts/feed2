@@ -130,6 +130,44 @@ return [
                 'name' => ['~ \[\d+?\]~', ''],
             ],
         ],
+
+        'itmag' => [
+            'ln' => 'russian',
+            'geo' => 'ua',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=22581&format=xml',
+            'filter_or' => '~держат|тримач|стед[иі]кам~iu',
+            'filter_cat' => [
+                57, 168, 178, //Зарядные устройства
+                193, 224, //Экшн-камеры
+            ],
+            'extdata' => [
+                'description' => ['extdata/itmag/desc_multiparaphrases',],
+                'summary' => ['extdata/itmag/desc_multisummary',],
+                'alt' => ['extdata/itmag/name_multiparaphrases',],
+                'pics' => ['extdata/itmag/pics',],
+            ],
+            'post_processing' => [
+                'url' => ['~ua%2Fua%2Fcatalog%2~', 'ua%2Fcatalog%2'],
+            ],
+        ],
+
+        'itsell' => [
+            'ln' => 'russian',
+            'geo' => 'ua',
+            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=22578&format=xml',
+            'filter_cat' => [
+                '3377be9f15', '8a7526dfbc', 'c9d4873229', '117bdd1606', //Зарядные устройства
+            ],
+            'extdata' => [
+                'description' => ['extdata/itsell/desc_multiparaphrases',],
+                'summary' => ['extdata/itsell/desc_multisummary',],
+                'alt' => ['extdata/itsell/name_multiparaphrases',],
+                'pics' => ['extdata/itsell/pics',],
+            ],
+            'post_processing' => [
+                'url' => ['~itsell\.ua%2Fuk%2F~', 'itsell.ua%2F'],
+            ],
+        ],
         // 'avtmarket' => [
         //     'ln' => 'russian',
         //     'geo' => 'ua',
@@ -148,8 +186,6 @@ return [
         // ],
 
         // fishki.ua ждем выгрузки
-        //itmag
-        //ITsell
 
         // ============RUSSIAN================
         'pleer' => [
