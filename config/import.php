@@ -8,7 +8,7 @@ return [
         'donner' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21506&format=xml',
+            'url' => env('FEED_URL_DONNER'),
             'filter' => '~\bdrums?\b|\bpercussions?\b~i',
             'extdata' => [
                 'description' => ['extdata/donner/desc_multiparaphrases',],
@@ -20,7 +20,7 @@ return [
         'eastar' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21829&format=xml',
+            'url' => env('FEED_URL_EASTAR'),
             'filter' => '~\bdrums?\b|\bpercussions?\b~i',
             'extdata' => [
                 'description' => ['extdata/eastar/desc_multiparaphrases',],
@@ -35,7 +35,7 @@ return [
         'banggood' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=19353&format=xml',
+            'url' => env('FEED_URL_BANGGOOD'),
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
             'extdata' => [
                 'description' => ['extdata/banggood/desc_multiparaphrases',],
@@ -48,7 +48,7 @@ return [
         'dhgate4' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20281&format=xml',
+            'url' => env('FEED_URL_DHGATE4'),
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
@@ -60,7 +60,7 @@ return [
         'dhgate6' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20282&format=xml',
+            'url' => env('FEED_URL_DHGATE6'),
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
@@ -72,7 +72,7 @@ return [
         'dhgate8' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20283&format=xml',
+            'url' => env('FEED_URL_DHGATE8'),
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
@@ -84,7 +84,7 @@ return [
         'dhgate15' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20284&format=xml',
+            'url' => env('FEED_URL_DHGATE15'),
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
             'extdata' => [
                 'description' => ['extdata/dhgate/desc_multiparaphrases',],
@@ -97,7 +97,7 @@ return [
         'tomtop' => [
             'ln' => 'english',
             'geo' => 'en',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=14723&format=xml',
+            'url' => env('FEED_URL_TOMTOP'),
             'filter' => '~\bdrums?\b|\bpercussions?\b|\bcycling|\bbicycle|\bmotobicycle|\bbike|fishing|b\rc\b|remote\s+?control|plane|copter~i',
             'extdata' => [
                 'description' => ['extdata/tomtop/desc_multiparaphrases',],
@@ -111,7 +111,7 @@ return [
         'touch' => [
             'ln' => 'russian',
             'geo' => 'ua',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=20724&format=xml',
+            'url' => env('FEED_URL_TOUCH'),
             'filter_cat' => [
                 2978, //Одежда и аксессуары
                 760, //Техника для красоты и здоровья
@@ -139,7 +139,7 @@ return [
         'itmag' => [
             'ln' => 'russian',
             'geo' => 'ua',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=22581&format=xml',
+            'url' => env('FEED_URL_ITMAG'),
             'filter_or' => '~держат|тримач|стед[иі]кам~iu',
             'filter_cat' => [
                 57, 168, 178, //Зарядные устройства
@@ -165,7 +165,7 @@ return [
         'itsell' => [
             'ln' => 'russian',
             'geo' => 'ua',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=22578&format=xml',
+            'url' => env('FEED_URL_ITSELL'),
             'filter_cat' => [
                 '3377be9f15', '8a7526dfbc', 'c9d4873229', '117bdd1606', //Зарядные устройства
             ],
@@ -179,29 +179,13 @@ return [
                 'url' => ['~itsell\.ua%2Fuk%2F~', 'itsell.ua%2F'],
             ],
         ],
-        // 'avtmarket' => [
-        //     'ln' => 'russian',
-        //     'geo' => 'ua',
-        //     'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=18829&format=xml',
-        //     'extdata' => [
-        //         'description' => ['extdata/avtmarket/desc_multiparaphrases',],
-        //     ],
-        // ],
-        // 'agromarket' => [
-        //     'ln' => 'russian',
-        //     'url' => 'http://export.admitad.com/ru/webmaster/websites/2173558/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=16930&format=xml',
-        //     'filter_cat' => [1025],
-        //     'extdata' => [
-        //         'description' => ['extdata/agromarket/desc_multiparaphrases',],
-        //     ],
-        // ],
 
 
         // ============RUSSIAN================
         'pleer' => [
             'ln' => 'russian',
             'geo' => 'ru',
-            'url' => 'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=14498&format=xml',
+            'url' => env('FEED_URL_PLEER'),
             'filter_cat' => [
                 4887, //фильтры для воды
                 3262, //Принадлежности для пикника и туризма
