@@ -42,7 +42,7 @@ class OfferResource extends JsonResource
             'pictures' => constSort(
                 Str::of($this->pictures)->explode(','),
                 $noise
-            )->slice(0, 3 + genConst(4, $noise)), //$this->pictures,
+            )->slice(0, 3 + genConst(4, $noise)),
             'alts' => $alts,
             'price' => $this->price,
             'oldprice' => $this->oldprice,
