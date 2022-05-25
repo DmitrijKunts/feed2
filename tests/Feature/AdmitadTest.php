@@ -50,13 +50,4 @@ class AdmitadTest extends TestCase
         Admitad::postProcessing($offer, $data);
         $this->assertNotTrue(Str::contains($offer->name, '[4545]'), $offer->name);
     }
-
-    // public function test_download()
-    // {
-    //     Storage::fake('xml-test');
-    //     Admitad::download(
-    //         'http://export.admitad.com/ru/webmaster/websites/866689/products/export_adv_products/?user=traffoLocker&code=285bbf510d&feed_id=21506&format=xml',
-    //         "xml/donner-test.xml"
-    //     );
-    // }
 }
