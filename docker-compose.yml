@@ -25,7 +25,10 @@ services:
         depends_on:
             - pgsql
     pgsql:
-        image: 'postgres:14'
+        build:
+            context: .
+            dockerfile: postgres_custom.dockerfile
+        # image: 'postgres:14'
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
         environment:
