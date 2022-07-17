@@ -17,18 +17,18 @@ return [
                 'pics' => ['extdata/donner/pics',],
             ],
         ],
-        'eastar' => [
-            'ln' => 'english',
-            'geo' => 'en',
-            'url' => env('FEED_URL_EASTAR'),
-            'filter' => '~\bdrums?\b|\bpercussions?\b~i',
-            'extdata' => [
-                'description' => ['extdata/eastar/desc_multiparaphrases',],
-                'summary' => ['extdata/eastar/desc_multisummary',],
-                'alt' => ['extdata/eastar/name_multiparaphrases',],
-                'pics' => ['extdata/eastar/pics',],
-            ],
-        ],
+        // 'eastar' => [
+        //     'ln' => 'english',
+        //     'geo' => 'en',
+        //     'url' => env('FEED_URL_EASTAR'),
+        //     'filter' => '~\bdrums?\b|\bpercussions?\b~i',
+        //     'extdata' => [
+        //         'description' => ['extdata/eastar/desc_multiparaphrases',],
+        //         'summary' => ['extdata/eastar/desc_multisummary',],
+        //         'alt' => ['extdata/eastar/name_multiparaphrases',],
+        //         'pics' => ['extdata/eastar/pics',],
+        //     ],
+        // ],
         //MUSICAL
 
 
